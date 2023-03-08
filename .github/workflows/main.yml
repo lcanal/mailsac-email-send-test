@@ -1,10 +1,19 @@
+name: Go mail application sample
 on: [push]
 
 jobs:
-  tests:
+  build:
+
     runs-on: ubuntu-latest
     name: Run Golang Email Tests
     steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+        
     - name: Build and run go script
       run: go run .
       env:
