@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: Run Selenium Tests
+    steps:
+    - name: Run email send test
+      run: go run test.go
+      env:
+        MAILSAC_API_KEY:  ${{ secrets.MAILSAC_API_KEY }}
+        MAILSAC_USERNAME: ${{ secrets.MAILSAC_PASSWORD }}
+        MAILSAC_HOST:     ${{ secrets.MAILSAC_HOST }}
+        MAILSAC_PORT:     ${{ secrets.MAILSAC_PORT }}
+        EMAIL_FROM:       ${{ secrets.EMAIL_FROM }}
+        EMAIL_TO:         ${{ secrets.EMAIL_TO }}
