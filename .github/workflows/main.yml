@@ -3,10 +3,10 @@ on: [push]
 jobs:
   tests:
     runs-on: ubuntu-latest
-    name: Run Selenium Tests
+    name: Run Golang Email Tests
     steps:
-    - name: Run email send test
-      run: go run test.go
+    - name: Build and run go script
+      run: go run .
       env:
         MAILSAC_API_KEY:  ${{ secrets.MAILSAC_API_KEY }}
         MAILSAC_USERNAME: ${{ secrets.MAILSAC_PASSWORD }}
